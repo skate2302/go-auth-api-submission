@@ -38,7 +38,7 @@ This project is fully containerized, making setup incredibly simple. You **do no
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/skate2302/go-auth-api-submission.git
-    cd go-auth-api
+    cd go-auth-api-submission
     ```
 
 2.  **Create an environment file:**
