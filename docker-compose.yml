@@ -1,0 +1,26 @@
+services:
+  # Our Go API Service
+  api:
+    build: . # This tells Docker Compose to look for a Dockerfile in the current directory
+    container_name: go-auth-api-service
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env # Load environment variables from the .env file
+    depends_on:
+      - mongo # This ensures the database is started before our API
+    # restart: unless-stopped
+    restart: on-failure
+
+  # MongoDB Database Service
+  mongo:
+    image: mongo:latest
+    container_name: mongodb-auth
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
